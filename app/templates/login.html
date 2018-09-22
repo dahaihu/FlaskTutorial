@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{#这个继承自base.html是用来确保，所有的应用的顶部都有一个导航栏，确保整体的风格一致#}
+
+
+{% block content %}
+    <h1>Sign In</h1>
+    {# 这个form在html中表示一个web中的表单 #}
+    {# action 表示的是提交表单信息的时候，这些表单信息应该被传送到的网址。为空表示提交到表单所在的url #}
+    {# method 表示提交信息的网络请求的方法 #}
+    {# novalidate 用来告诉浏览器对表单的信息不进行任何验证，全部留给服务器处理 #}
+    <form action="" method="post" novalidate>
+    {# form.hidden_tag()产生一个隐藏的域值，用来防止CSRF攻击 #}
+        {{ form.hidden_tag() }}
+        <p>
+            {# 想要值的label的时候使用form.<field_name>.label来获取 #}
+            {{ form.username.label }}<br>
+            {# 想要值的时候使用form.<field_name>()来获取 #}
+            {# 这个参数size会用作html中input标签的参数 #}
+            {{ form.username(size=32) }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
