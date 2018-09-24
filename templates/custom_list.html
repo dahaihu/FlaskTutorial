@@ -1,0 +1,23 @@
+{% extends 'admin/model/list.html' %}
+{% block body %}
+    <h1>Custom List View</h1>
+    {{ super() }}
+{% endblock %}
+
+{% block list_row_actions %}
+    {{ super() }}
+{#    <a href="http://python.org">那么应该如何放入参数呢</a>#}
+
+{#    <form class="icon" method="POST" action="/admin/user/action/">#}
+{#    <input id="action" name="action" value="approve" type="hidden">#}
+{#    <input name="rowid" value="{{ get_pk_value(row) }}">#}
+{#    <button onclick="return confirm('Are you sure you want to approve selected users?');" title="Approve">#}
+{#      <span class="fa fa-ok glyphicon glyphicon-ok"></span>#}
+{#    </button>#}
+
+{#    这玩意儿用着有意思啊#}
+    <input name="rowid" value="{{ admin_view.model.__name__ }}" type="text">
+    <input name="rowid" value="{{ admin_view.model.query.get(get_pk_value(row)).email }}" type="text">
+
+  </form>
+{% endblock %}
