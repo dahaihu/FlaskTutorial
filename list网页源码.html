@@ -1,0 +1,972 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User - Mr.Hu&#39;s test</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+
+
+        <link href="/admin/static/bootstrap/bootstrap2/swatch/default/bootstrap.min.css?v=2.3.2" rel="stylesheet">
+        <link href="/admin/static/bootstrap/bootstrap2/css/bootstrap-responsive.css?v=2.3.2" rel="stylesheet">
+        <link href="/admin/static/admin/css/bootstrap2/admin.css?v=1.1.1" rel="stylesheet">
+
+        <style>
+        body {
+            padding-top: 4px;
+        }
+        </style>
+
+
+    <style>
+        .container {
+         display: flex;
+         flex-direction: row;
+         flex-wrap: nowrap;
+         justify-content: space-between;
+        }
+
+        .left {
+            display: flex;
+            order: 0;
+        }
+
+        .right {
+            display: flex;
+            order: 1;
+        }
+    </style>
+
+
+
+
+
+  <link href="/admin/static/vendor/select2/select2.css?v=3.5.2" rel="stylesheet">
+  <link href="/admin/static/vendor/bootstrap-daterangepicker/daterangepicker-bs2.css?v=1.3.22" rel="stylesheet">
+
+
+
+
+
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+
+          <a class="brand" href="/admin">Mr.Hu&#39;s test</a>
+
+
+          <ul class="nav">
+
+
+        <li>
+          <a href="/admin/">Home</a>
+        </li>
+        <li class="active">
+          <a href="/admin/user/">User</a>
+        </li>
+        <li>
+          <a href="/admin/role/">Role</a>
+        </li>
+
+          </ul>
+
+
+          <ul class="nav pull-right">
+
+
+
+
+          </ul>
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="nav nav-tabs actions-nav">
+        <li class="active">
+            <a href="javascript:void(0)">List (11)</a>
+        </li>
+
+
+        <li>
+  <a class="icon" href="#" data-toggle="modal" title="Create New Record" data-target="#fa_modal_window" data-remote="/admin/user/new/?url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    Create
+  </a>
+
+          </li>
+
+
+
+
+
+
+
+
+
+
+
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">With selected<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+
+        <li>
+            <a href="javascript:void(0)" onclick="return modelActions.execute('delete');">Delete</a>
+        </li>
+
+    </ul>
+
+        </li>
+
+
+
+
+
+    </ul>
+
+
+
+
+
+    <div class="left">
+    <div id="no-more-tables">
+    <table class="table table-striped table-bordered table-hover model-list cf">
+        <thead class="cf">
+            <tr>
+
+
+                    <th class="list-checkbox-column">
+                        <input type="checkbox" name="rowtoggle" class="action-rowtoggle" title="Select all records" />
+                    </th>
+
+
+
+                        <th class="span1">&nbsp;</th>
+
+
+
+
+                    <th class="column-header col-name">
+
+
+                                <a href="/admin/user/?sort=0" title="Sort by Name">Name</a>
+
+
+
+                    </th>
+
+
+                    <th class="column-header col-email">
+
+
+                                <a href="/admin/user/?sort=1" title="Sort by Email">Email</a>
+
+
+
+                    </th>
+
+
+                    <th class="column-header col-password">
+
+
+                                <a href="/admin/user/?sort=2" title="Sort by Password">Password</a>
+
+
+
+                    </th>
+
+
+                    <th class="column-header col-role">
+
+                            Role
+
+
+                    </th>
+
+
+            </tr>
+        </thead>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="1" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=1&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="1">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    wang
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    wang@163.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    1
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 1 admin
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="2" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=2&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="2">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    zhang
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    zhang@189.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    201512
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 2 user
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="3" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=3&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="3">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    chen
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    chen@126.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    987654
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 2 user
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="4" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=4&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="4">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    zhou
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    zhou@163.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    456789
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 1 admin
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="5" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=5&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="5">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    tang
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    tang@itheima.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    158104
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 2 user
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="6" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=6&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="6">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    wu
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    wu@gmail.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    5623514
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 2 user
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="7" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=7&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="7">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    qian
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    qian@gmail.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    1543567
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 1 admin
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="8" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=8&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="8">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    liu
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    liu@itheima.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    867322
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 1 admin
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="9" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=9&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="9">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    li
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    li@163.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    4526342
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 2 user
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="10" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=10&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="10">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    sun
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+                    sun@163.com
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+                    235523
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+                    Role: 2 user
+
+                    </td>
+
+
+        </tr>
+
+        <tr>
+
+
+                <td>
+                    <input type="checkbox" name="rowid" class="action-checkbox" value="14" title="Select record" />
+                </td>
+
+
+
+                    <td class="list-buttons-column">
+
+
+
+
+  <a class="icon" href="#" data-toggle="modal" title="Edit Record" data-target="#fa_modal_window" data-remote="/admin/user/edit/?id=14&amp;url=%2Fadmin%2Fuser%2F&amp;modal=True">
+    <span class="fa fa-pencil glyphicon icon-pencil"></span>
+  </a>
+
+
+
+
+<form class="icon" method="POST" action="/admin/user/delete/">
+  <input id="id" name="id" required type="hidden" value="14">
+  <input id="url" name="url" type="hidden" value="/admin/user/">
+
+  <button onclick="return confirm('Are you sure you want to delete this record?');" title="Delete record">
+    <span class="fa fa-trash glyphicon icon-trash"></span>
+  </button>
+</form>
+
+
+
+                    </td>
+
+
+                    <td class="col-name" data-title="Name">
+
+                    wierjiqwerw
+
+                    </td>
+
+                    <td class="col-email" data-title="Email">
+
+
+
+                    </td>
+
+                    <td class="col-password" data-title="Password">
+
+
+
+                    </td>
+
+                    <td class="col-role" data-title="Role">
+
+
+
+                    </td>
+
+
+        </tr>
+
+    </table>
+    </div>
+
+
+
+
+
+    </div>
+    <div class="right">
+    胡世昌是个大帅哥，啊啊啊啊
+    </div>
+    <script>
+
+        document.findElementByClassName('left').parentNode.setAttribute('class', 'container')
+    </script>
+
+
+
+
+    <form id="action_form" action="/admin/user/action/" method="POST" style="display: none">
+
+        <input id="url" name="url" type="hidden" value="/admin/user/">
+        <input id="action" name="action" type="hidden" value="">
+    </form>
+
+
+  <div id="fa_modal_window" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Loading...</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+  </div>
+
+    </div>
+
+
+
+    <script src="/admin/static/vendor/jquery.min.js?v=2.1.4" type="text/javascript"></script>
+    <script src="/admin/static/bootstrap/bootstrap2/js/bootstrap.min.js?v=2.3.2" type="text/javascript"></script>
+    <script src="/admin/static/vendor/moment.min.js?v=2.9.0" type="text/javascript"></script>
+    <script src="/admin/static/vendor/select2/select2.min.js?v=3.5.2" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+  <script src="/admin/static/vendor/bootstrap-daterangepicker/daterangepicker.js?v=1.3.22"></script>
+
+  <script src="/admin/static/admin/js/form.js?v=1.0.1"></script>
+
+    <script src="/admin/static/admin/js/filters.js?v=1.0.0"></script>
+
+
+
+    <script src="/admin/static/admin/js/actions.js?v=1.0.0"></script>
+    <script language="javascript">
+        var modelActions = new AdminModelActions("Please select at least one record.", {"delete": "Are you sure you want to delete selected records?"});
+    </script>
+
+
+
+    <script language="javascript">
+        (function($) {
+            $('[data-role=tooltip]').tooltip({
+                html: true,
+                placement: 'bottom'
+            });
+
+        })(jQuery);
+    </script>
+
+  </body>
+</html>

@@ -1,23 +1,58 @@
 {% extends 'admin/model/list.html' %}
-{% block body %}
-    <h1>Custom List View</h1>
+
+{% block head_css %}
     {{ super() }}
+    {#不清楚到底行不行，先是设置好了布局#}
+    <style>
+        .box {
+        {#首先，实现 flex 布局需要先指定一个容器，任何一个容器都可以被指定为 flex 布局，这样容器内部的元素就可以使用 flex 来进行布局#} display: flex;
+        {# 决定主轴的方向#} flex-direction: row;
+        {# 决定容器内项目是否可以换行， nowrap表示不可以换行#} flex-wrap: nowrap;
+        {#  #} justify-content: space-around;
+            align-items: center;
+        }
+
+        {# 我看着似乎，被包含的节点，似乎也是不需要什么东西包围的。例如，到底需不需要display: flex呢？#}
+        .left {
+            display: flex;
+            order: 0;
+        }
+
+        .right {
+            display: flex;
+            order: 1;
+        }
+    </style>
 {% endblock %}
 
-{% block list_row_actions %}
-    {{ super() }}
-{#    <a href="http://python.org">那么应该如何放入参数呢</a>#}
+{# 将body部分定制为左右两侧#}
+{% block model_list_table %}
+    <div class="box">
+        <div class="left">{{ super() }}</div>
+        <div class="right">
+        胡世昌是个大帅哥，啊啊啊啊
+        </div>
+    </div>
+{#    <script>#}
+{#        设置父标签的属性#}
+{#        document.findElementByClassName('left').parentNode.setAttribute('class', 'box')#}
+{#    </script>#}
+{% endblock %}
 
+{#{% block list_row_actions %}#}
+{#    {{ super() }}#}
+{#    <a href="http://python.org">那么应该如何放入参数呢</a>#}
+{##}
 {#    <form class="icon" method="POST" action="/admin/user/action/">#}
 {#    <input id="action" name="action" value="approve" type="hidden">#}
 {#    <input name="rowid" value="{{ get_pk_value(row) }}">#}
 {#    <button onclick="return confirm('Are you sure you want to approve selected users?');" title="Approve">#}
 {#      <span class="fa fa-ok glyphicon glyphicon-ok"></span>#}
 {#    </button>#}
-
+{##}
 {#    这玩意儿用着有意思啊#}
-    <input name="rowid" value="{{ admin_view.model.__name__ }}" type="text">
-    <input name="rowid" value="{{ admin_view.model.query.get(get_pk_value(row)).email }}" type="text">
-
-  </form>
-{% endblock %}
+{#    <input name="rowid" value="{{ admin_view.model.__name__ }}" type="text">#}
+{#    <input name="rowid" value="{{ admin_view.model.query.get(get_pk_value(row)).email }}" type="text">#}
+{##}
+{#  </form>#}
+{#{% endblock %}#}
